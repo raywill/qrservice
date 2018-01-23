@@ -2,6 +2,19 @@
 
 A micro json service to decode QR
 
+## Install
+
+Barcode reader
+```
+yum install zbar.x86_64
+```
+
+Flask Web Framework
+
+```
+pip install flask
+```
+
 ## Samples
 
 ```
