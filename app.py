@@ -1,5 +1,6 @@
 #!/usr/bin/python
 from flask import Flask,request,jsonify
+from werkzeug.utils import secure_filename
 import os
 import subprocess
 
@@ -19,7 +20,8 @@ def upload():
             fpath = request.form.get('file')
     else :
         f = request.files['file']
-        fpath = os.path.join(app.config['UPLOAD_FOLDER'], f.filename)
+        filename = secure_filename(f.filename)
+        fpath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         f.save(fpath)
 
     try :
